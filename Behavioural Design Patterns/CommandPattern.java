@@ -94,7 +94,7 @@ public class CommandPattern{
        Command AdjustVolume=new AdjustVolumeCommand(tv,10);
        RemoteControl remote=new RemoteControl();
        remote.setOnCommand(turnOn);
-        remote.setOnCommand(turnOff);
+        remote.setOffCommand(turnOff);
         remote.pressOnButton();
         remote.pressOffButton();
 
