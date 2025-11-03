@@ -59,7 +59,8 @@ class FavPlaylist implements PlaylistIterator{
         while(index<playlist.getSongs().size()){
             if(playlist.getSongs().get(index).contains("Fav")){
                 return true;
-            }index++;
+            }
+            index++;
         }
         return false;
     }
@@ -119,7 +120,7 @@ public class ItratorPattern{
             System.out.println("Playing shuffeled "+shuffeled.next());
         }
         System.out.println("Fav");
-        PlaylistIterator fav=playlist.iterator("Simple");
+        PlaylistIterator fav=playlist.iterator("fav");
         while(fav.hasNext()){
             System.out.println("Playing fav "+fav.next());
         }
