@@ -100,6 +100,29 @@ class Playlist{
 }
 public class ItratorPattern{
     public static void main(String[] args) {
-       
+        Playlist playlist=new Playlist();
+        playlist.addSong("new song");
+        playlist.addSong("new song 1");
+        playlist.addSong("new song 2");
+        playlist.addSong("new song Fav 1 ");
+        playlist.addSong("new song 3");
+        playlist.addSong("new song Fav 2 ");
+
+        System.out.println("SimplePlaylistItrator");
+        PlaylistIterator simple=playlist.iterator("simple");
+        while(simple.hasNext()){
+            System.out.println("Playing "+simple.next());
+        }
+        System.out.println("shuffelled");
+        PlaylistIterator shuffeled=playlist.iterator("shuffle");
+        while(shuffeled.hasNext()){
+            System.out.println("Playing shuffeled "+shuffeled.next());
+        }
+        System.out.println("Fav");
+        PlaylistIterator fav=playlist.iterator("Simple");
+        while(fav.hasNext()){
+            System.out.println("Playing fav "+fav.next());
+        }
+
     }
 }
