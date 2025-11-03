@@ -38,12 +38,12 @@ class ShuffledPlaylist implements PlaylistIterator{
 
     @Override
     public boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return index<shuffeledSongs.size();
     }
 
     @Override
     public String next() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return shuffeledSongs.get(index++);
     }
 
 }
