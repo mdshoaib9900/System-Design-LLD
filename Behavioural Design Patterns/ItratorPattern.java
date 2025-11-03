@@ -47,6 +47,57 @@ class ShuffledPlaylist implements PlaylistIterator{
     }
 
 }
+class FavPlaylist implements PlaylistIterator{
+    private Playlist playlist;
+    int index;
+    public FavPlaylist(Playlist playlist){
+        this.playlist=playlist;
+        this.index=0;
+    }
+    @Override
+    public boolean hasNext() {
+        while(index<playlist.getSongs().size()){
+            if(playlist.getSongs().get(index).contains("Fav")){
+                return true;
+            }index++;
+        }
+        return false;
+    }
+
+    @Override
+    public String next() {
+       return playlist.getSongs().get(index++);
+    }
+
+}
+class Playlist{
+    private ArrayList<String> songs;
+    public Playlist(){
+        this.songs=new ArrayList<>();
+    }
+
+    public void addSong(String song){
+        songs.add(song);
+    }
+    public PlaylistIterator iterator(String type){
+        switch (type) {
+            case "simple":
+                    return new SimplePlaylistItrator(this);
+                
+            case "shuffle":
+                return new ShuffledPlaylist(this);
+            case "fav":
+                return new FavPlaylist(this);
+
+            default:
+                return null;
+        }
+
+    }
+    public ArrayList<String> getSongs(){
+        return songs;
+    }
+}
 public class ItratorPattern{
     public static void main(String[] args) {
        
