@@ -54,7 +54,7 @@ class  AdjustVolumeCommand implements Command{
     }
 }
 class RemoteControl{
-    private  Command onCommand;
+    private Command onCommand;
     private Command offCommand;
 
     public void setOnCommand(Command onCommand){
