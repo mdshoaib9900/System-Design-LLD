@@ -87,13 +87,13 @@ class Tv{
 }
 public class CommandPattern{
     public static void main(String[] args) {
-        Tv tv=new Tv();
+       Tv tv=new Tv();
        Command turnOn=new TurnOnCommand(tv);
        Command turnOff=new TurnOffCommand(tv);
        Command changeChannel=new ChangeChannelCommand(tv,5);
        Command AdjustVolume=new AdjustVolumeCommand(tv,10);
        RemoteControl remote=new RemoteControl();
-       remote.setOnCommand(turnOn);
+        remote.setOnCommand(turnOn);
         remote.setOffCommand(turnOff);
         remote.pressOnButton();
         remote.pressOffButton();
