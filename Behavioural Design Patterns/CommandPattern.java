@@ -2,6 +2,7 @@
 
 interface Command{
     void execute();
+
 }
 
 class  TurnOnCommand implements Command{
@@ -17,6 +18,9 @@ class  TurnOnCommand implements Command{
 }
 class  TurnOffCommand implements Command{
     private Tv tv;
+
+
+    private int here=0;
     public TurnOffCommand(Tv tv){
         this.tv=tv;
     }
