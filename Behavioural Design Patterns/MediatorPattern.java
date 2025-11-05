@@ -42,6 +42,16 @@ class Bidder{
 }
 public class MediatorPattern{
     public static void main(String[] args) {
-        
+        Mediator mediator=new AuctionHouse();
+        Bidder bidder1=new Bidder(mediator,"alice");
+        Bidder bidder2=new Bidder(mediator,"bob");
+        Bidder bidder3=new Bidder(mediator,"shoaib");
+
+        mediator.registerBidder(bidder1);
+        mediator.registerBidder(bidder2);
+        mediator.registerBidder(bidder3);
+        mediator.placeBid(bidder3, 1000);
+
+
     }
 }
