@@ -46,6 +46,15 @@ class Director extends Approver{
 }
 public class ChainOfResponsibility{
     public static void main(String[] args) {
-        
+        Approver supervisor=new Supervisor();
+        Approver manager=new Manager();
+        Approver director=new Director();
+        supervisor.setNextApprover(manager);
+        manager.setNextApprover(director);
+        int leaveDays=10;
+        System.out.println("employee requets for "+leaveDays+" of leave");
+        supervisor.processLeaveRequest(leaveDays);
+
+
     }
 }
