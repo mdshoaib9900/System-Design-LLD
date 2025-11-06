@@ -1,5 +1,5 @@
 abstract class Beverage{
-    final void Beverage(){
+    public final void prepare(){
         boilWater();
         brew();
         pourInCup();
@@ -43,6 +43,7 @@ class TeaBeverage extends Beverage{
 }
 public class TemplatePattern{
     public static void main(String[] args) {
-        
+        Beverage coffee=new CoffeeBeverage();
+        coffee.prepare();
     }
 }
