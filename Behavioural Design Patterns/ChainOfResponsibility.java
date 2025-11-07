@@ -52,6 +52,7 @@ public class ChainOfResponsibility{
         supervisor.setNextApprover(manager);
         manager.setNextApprover(director);
         int leaveDays=7;
+        System.out.println("employee requets for "+leaveDays+" of leave");
         supervisor.processLeaveRequest(leaveDays);
 
 
