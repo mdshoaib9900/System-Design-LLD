@@ -39,6 +39,24 @@ class EditorHistory{
 }
 public  class MementoPattern{
     public static void main(String[] args) {
+         TextEditor textEditor=new TextEditor();
+         EditorHistory editorHistory=new EditorHistory();
+         textEditor.setText("Hello shoaib how");
+         System.out.println("current text "+textEditor.getText());
+         editorHistory.push(textEditor.save());
+
+         textEditor.setText("How are uh doing!!!");
+         System.out.println("current text "+textEditor.getText());
+         editorHistory.push(textEditor.save());
+
+         textEditor.setText("How are uh doing!!! my boy");
+         System.out.println("current text "+textEditor.getText());
          
+         Memento prevState=editorHistory.pop();
+         textEditor.restore(prevState);
+         System.out.println("After text Undo "+textEditor.getText());
+
+         prevState = editorHistory.pop();
+         textEditor.restore(prevState);
     }
 }
