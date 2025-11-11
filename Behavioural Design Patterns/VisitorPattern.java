@@ -53,17 +53,17 @@ class BillingVisitor implements Visitor{
 
     @Override
     public void visit(ChildPatient patient) {
-      
+        System.out.println("billing child patient");
     }
 
     @Override
     public void visit(AdultPatient patient) {
-       
+    System.out.println("billing Adult patient");
     }
 
     @Override
     public void visit(SeniorPatient patient) {
-        
+        System.out.println("billing Senior patient");
     }
 
 }
