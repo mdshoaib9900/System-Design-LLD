@@ -69,6 +69,17 @@ class BillingVisitor implements Visitor{
 }
 public class VisitorPattern{
     public static void main(String[] args) {
-        
+        Patient[] patients={
+            new ChildPatient(),
+            new AdultPatient(),
+            new SeniorPatient()
+        };
+        Visitor diagnosis=new DiagnosisVisitor();
+        Visitor  billing =new BillingVisitor();
+
+        for(Patient p:patients){
+            p.accept(diagnosis);
+            p.accept(billing);
+        }
     }
 }
