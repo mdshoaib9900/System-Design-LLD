@@ -75,6 +75,9 @@ class Booking{
     boolean breakfast;
     boolean pickup;
     double totalAmount;
+    public Booking(){
+
+    }
     public Booking(BookingBuilder bookingBuilder){
         this.room=bookingBuilder.room;
         this.breakfast=bookingBuilder.breakfast;
@@ -133,6 +136,24 @@ class BookingBuilder{
 class BookingPrototypeRegistry{
    private static Map<String , Booking> register=new HashMap<>();
 
+   public void addPrototype(String name,Booking booking){
+    register.put(name, booking);
+   }
+
+    public static Booking clone(String name){
+        try {
+            Booking prototype=register.get(name);
+            Booking clone=new Booking();
+            clone.room=prototype.room;
+            clone.breakfast=prototype.breakfast;
+            clone.pickup=prototype.pickup;
+            clone.totalAmount=prototype.totalAmount;
+            return clone;
+
+        } catch (Exception e) {
+            throw new RuntimeException("No clone found");
+        }
+    }
 }
 public class BookingManagement{
     public static void main(String[] args) {

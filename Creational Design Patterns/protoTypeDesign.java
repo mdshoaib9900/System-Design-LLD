@@ -19,8 +19,7 @@ class characterPrototype implements  gameCharacter{
     }
     @Override
     public gameCharacter clone() {
-        try {
-            
+        try {  
         return (gameCharacter) super.clone();
         } catch (CloneNotSupportedException e) {
            throw new RuntimeException("not supported");
