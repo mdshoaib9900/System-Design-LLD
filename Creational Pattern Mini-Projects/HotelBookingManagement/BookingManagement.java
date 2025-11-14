@@ -155,6 +155,23 @@ class BookingPrototypeRegistry{
         }
     }
 }
+
+class BookingManager{
+    private static BookingManager instance=null;
+    public BookingManager(){}
+
+    public static BookingManager getInstance(){
+        if(instance==null){
+            instance=new BookingManager();
+
+        }
+        return instance;
+    }
+       public void confirmBooking(Booking booking) {
+        System.out.println(booking);
+        System.out.println("Booking Confirmed!\n");
+    }
+}
 public class BookingManagement{
     public static void main(String[] args) {
         
