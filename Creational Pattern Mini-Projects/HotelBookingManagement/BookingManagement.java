@@ -136,7 +136,7 @@ class BookingBuilder{
 class BookingPrototypeRegistry{
    private static Map<String , Booking> register=new HashMap<>();
 
-   public void addPrototype(String name,Booking booking){
+   public static void addPrototype(String name,Booking booking){
     register.put(name, booking);
    }
 
@@ -174,6 +174,30 @@ class BookingManager{
 }
 public class BookingManagement{
     public static void main(String[] args) {
-        
+        Room room1=RoomFactory.createRoom("deluxe");
+        Booking booking1=new BookingBuilder()
+        .setRoom(room1)
+        .addPickup(true)
+        .setBreakfast(true)
+        .build();
+
+        BookingManager.getInstance().confirmBooking(booking1);
+
+        HotelFactory luxFactory=new LuxuryHotelFactory();
+        Room luxRoom=luxFactory.createPremiumRoom();
+
+
+        Booking booking2=new BookingBuilder()
+        .setRoom(luxRoom)
+        .addPickup(false)
+        .setBreakfast(true)
+        .build();
+
+        BookingManager.getInstance().confirmBooking(booking2);
+
+
+        BookingPrototypeRegistry.addPrototype("honeymoon",booking1);
+        Booking clonedBooking=BookingPrototypeRegistry.clone("honeymoon");
+        BookingManager.getInstance().confirmBooking(clonedBooking);
     }
 }
