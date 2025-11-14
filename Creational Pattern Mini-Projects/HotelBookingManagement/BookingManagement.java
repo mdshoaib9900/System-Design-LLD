@@ -11,7 +11,7 @@ abstract class Room{
     public double getPrice(){
         return price;
     }
-
+    @Override
     public String toString(){
         return type+" Room (₹" + price + ")";
     }
@@ -29,11 +29,16 @@ class DeluxeRoom extends Room {
 class RoomFactory{
     public static Room createRoom(String type){
         switch (type.toLowerCase()) {
-            case "single": return new SingleRoom();
-            case "double":return new DoubleRoom();
-            case "deluxe":return new DeluxeRoom();
-            default:
-                throw new IllegalArgumentException("Invalid room type");
+            case "single" -> {
+                return new SingleRoom();
+            }
+            case "double" -> {
+                return new DoubleRoom();
+            }
+            case "deluxe" -> {
+                return new DeluxeRoom();
+            }
+            default -> throw new IllegalArgumentException("Invalid room type");
         }
     }
 }
@@ -75,9 +80,7 @@ class Booking{
     boolean breakfast;
     boolean pickup;
     double totalAmount;
-    public Booking(){
-
-    }
+    public Booking(){}
     public Booking(BookingBuilder bookingBuilder){
         this.room=bookingBuilder.room;
         this.breakfast=bookingBuilder.breakfast;
@@ -196,7 +199,7 @@ public class BookingManagement{
         BookingManager.getInstance().confirmBooking(booking2);
 
 
-        BookingPrototypeRegistry.addPrototype("honeymoon",booking1);
+        BookingPrototypeRegistry.addPrototype("honeymoon",booking2);
         Booking clonedBooking=BookingPrototypeRegistry.clone("honeymoon");
         BookingManager.getInstance().confirmBooking(clonedBooking);
     }
