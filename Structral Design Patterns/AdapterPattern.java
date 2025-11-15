@@ -107,6 +107,14 @@ class CoffeMachineAdapter implements SmartDevice{
 }
 public class AdapterPattern{
     public static void main(String[] args) {
-        
+        SmartDevice ac=new AirconditionerAdapter(new Airconditioning());
+        SmartDevice light=new SmartLightAdapter(new SmartLight());
+        SmartDevice coffe=new CoffeMachineAdapter(new CoffeMachine());
+        ac.turnOn();
+        light.turnOn();
+        coffe.turnOn();
+        ac.turnOf();   
+        light.turnOf();
+        coffe.turnOf();
     }
 }
