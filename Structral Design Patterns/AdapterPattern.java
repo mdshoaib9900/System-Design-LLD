@@ -16,6 +16,35 @@ class Airconditioning{
         System.out.println("Ac has been disconnected from bluetooth");
     }
 }
+class SmartLight{
+    public void connectedViaWifi(){
+        System.out.println("AC connected via Wifi");
+    }
+    public void switchOn(){
+        System.out.println("Light is truned on");
+    }
+    public void switchOff(){
+        System.out.println("Light is turned off");
+    }
+    public void disconnectWifi(){
+        System.out.println("Light is been disconnected via wifi");
+    }
+}
+class CoffeMachine{
+    public void initializeConnectionViaZigbee(){
+        System.out.println("coffe machine connection initialized via zigbee");
+    }
+    public void startBrewing(){
+        System.out.println("CoffeMachine is brewing coffee");
+    }
+    public void stopBrewing(){
+        System.out.println("CoffeMachine stopped brewing");
+    }
+    public void teriminateConnectionViaZigbee(){
+        System.out.println("coffe machine connection terminated via zigbee");
+    }
+
+}
 public class AdapterPattern{
     public static void main(String[] args) {
         
