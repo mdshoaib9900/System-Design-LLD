@@ -71,6 +71,17 @@ class CompositeSmartComponents implements SmartComponents{
 }
 public class CompositePattern{
     public static void main(String... args) {
-        
+        SmartComponents ac=new Ac();
+        SmartComponents light=new Light();
+
+        CompositeSmartComponents room1=new CompositeSmartComponents();
+        room1.addComponent(ac);
+        room1.addComponent(light);
+        CompositeSmartComponents room2=new CompositeSmartComponents();
+        room2.addComponent(ac);
+        room2.addComponent(light);
+        CompositeSmartComponents room3=new CompositeSmartComponents();
+        room3.addComponent(ac);
+        room3.addComponent(light);
     }
 }
