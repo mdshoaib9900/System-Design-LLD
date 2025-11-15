@@ -45,6 +45,24 @@ class CoffeMachine{
     }
 
 }
+class AirconditionerAdapter implements SmartDevice{
+    private  Airconditioning airconditioning;
+    public AirconditionerAdapter(Airconditioning airconditioning){
+        this.airconditioning=airconditioning;
+    }
+    @Override
+    public void turnOn() {
+        airconditioning.connectedViaBluetooth();
+        airconditioning.startCooling();
+    }
+
+    @Override
+    public void turnOf() {
+        airconditioning.disconnectBluetooth();
+        airconditioning.startCooling();
+    }
+
+}
 public class AdapterPattern{
     public static void main(String[] args) {
         
