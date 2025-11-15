@@ -78,10 +78,20 @@ public class CompositePattern{
         room1.addComponent(ac);
         room1.addComponent(light);
         CompositeSmartComponents room2=new CompositeSmartComponents();
-        room2.addComponent(ac);
-        room2.addComponent(light);
-        CompositeSmartComponents room3=new CompositeSmartComponents();
-        room3.addComponent(ac);
-        room3.addComponent(light);
+        room2.addComponent(new Ac());
+        room2.addComponent(new Light());
+        CompositeSmartComponents floor=new CompositeSmartComponents();
+        floor.addComponent(room1);
+        floor.addComponent(room2);
+
+        CompositeSmartComponents house =new CompositeSmartComponents();
+        house.addComponent(floor);
+
+        System.out.println("turn all devices on in house");
+        house.turnOn();
+
+        System.out.println("turn all devices off in house");
+        house.turnOff();
+
     }
 }
