@@ -63,6 +63,48 @@ class AirconditionerAdapter implements SmartDevice{
     }
 
 }
+class SmartLightAdapter implements SmartDevice{
+    private SmartLight smartLight;
+    public SmartLightAdapter(SmartLight smartLight){
+        this.smartLight=smartLight;
+    }
+
+    @Override
+    public void turnOn() {
+        smartLight.connectedViaWifi();
+        smartLight.switchOn();
+    }
+
+    @Override
+    public void turnOf() {
+        smartLight.disconnectWifi();
+        smartLight.switchOff();
+    }
+
+
+}
+class CoffeMachineAdapter implements SmartDevice{
+
+    private CoffeMachine coffeMachine;
+
+    public CoffeMachineAdapter(CoffeMachine coffeMachine){
+        this.coffeMachine=coffeMachine;
+    }
+
+
+    @Override
+    public void turnOn() {
+        coffeMachine.initializeConnectionViaZigbee();
+        coffeMachine.startBrewing();
+    }
+
+    @Override
+    public void turnOf() {
+        coffeMachine.teriminateConnectionViaZigbee();
+        coffeMachine.stopBrewing();
+    }
+
+}
 public class AdapterPattern{
     public static void main(String[] args) {
         
