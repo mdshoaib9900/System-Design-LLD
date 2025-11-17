@@ -1,3 +1,6 @@
+
+import java.util.*;
+
 class MusicPlayer{
     public void initalizeAudioDrivers(){
         System.out.println("initializing audio drives");
@@ -45,6 +48,11 @@ class MediaFacade{
 }
 public class FacadePattern{
     public static void main(String[] args) {
-        
+        MediaFacade mediaFacade=new MediaFacade();
+        System.out.println("welcome back!!");
+        System.out.println("choose audio or video enter below");
+        Scanner sc=new Scanner(System.in);
+        String ans=sc.next();
+        mediaFacade.performAction(ans);
     }
 }
