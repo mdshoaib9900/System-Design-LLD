@@ -88,6 +88,18 @@ class VanillaDecorator extends CoffeeDecorator{
 }
 public class DecoratorPattern{
     public static void main(String[] args) {
-        
+        Coffee coffee=new Expresso();
+        coffee=new MilkDecorator(coffee);
+        coffee=new SugarDecorator(coffee);
+        System.out.println("order "+coffee.getDescription());
+        System.out.println("Total cost "+coffee.getCost());
+
+        Coffee coffee1=new Cappucino();
+        coffee1=new MilkDecorator(coffee1);
+        coffee1=new SugarDecorator(coffee1);
+        coffee1=new VanillaDecorator(coffee1);
+        System.out.println("order "+coffee1.getDescription());
+        System.out.println("Total cost "+coffee1.getCost());
+
     }
 }
