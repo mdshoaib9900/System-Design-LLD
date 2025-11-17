@@ -92,6 +92,12 @@ public class CompositePattern{
 
         System.out.println("turn all devices off in house");
         house.turnOff();
+        
+        System.out.println("trun on all devices at floor 1 & 2");
+        floor.turnOn();
+        System.out.println("trun on all devices at room 1 ");
+        room1.turnOn();
 
+        
     }
 }
