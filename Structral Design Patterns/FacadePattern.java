@@ -27,6 +27,21 @@ class MediaFacade{
         this.musicPlayer=new MusicPlayer();
         this.videoPlayer=new VideoPlayer();
     }
+
+    public void performAction(String action){
+        switch (action.toLowerCase()) {
+            case "music"->{ musicPlayer.initalizeAudioDrivers();
+                            musicPlayer.decodeAudio();
+                            musicPlayer.startPlayBack();
+            }
+            case "video"->{
+                videoPlayer.initalizeAudioDrivers();
+                videoPlayer.decodeAudio();
+                videoPlayer.startPlayBack();
+            }
+            default->System.out.println("no macth found");
+        }
+    }
 }
 public class FacadePattern{
     public static void main(String[] args) {
