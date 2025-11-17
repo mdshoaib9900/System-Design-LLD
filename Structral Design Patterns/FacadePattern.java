@@ -53,6 +53,8 @@ public class FacadePattern{
         System.out.println("choose audio or video enter below");
         Scanner sc=new Scanner(System.in);
         String ans=sc.next();
+
         mediaFacade.performAction(ans);
+        sc.close();
     }
 }
