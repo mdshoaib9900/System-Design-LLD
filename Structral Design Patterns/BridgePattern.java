@@ -1,3 +1,5 @@
+
+
 interface Renderer{
     void renderCircle(double radius);
     void renderReactangle(double  width,double height);
@@ -74,6 +76,26 @@ abstract class Shape{
 }
 public class BridgePattern{
     public static void main(String[] args) {
-        
+        Renderer resterRenderer=new ResterRenderer();
+        Renderer vectorRenderer=new VectorRenderer();
+
+        Shape resterCircle=new Circle(resterRenderer, 12.0);
+        Shape vectorCircle=new Circle(vectorRenderer, 14.0);
+
+
+       Shape resterReat=new Reactangle(resterRenderer,11.0,10.0);
+       Shape vectorReat=new Reactangle(vectorRenderer,10.0,10.0);
+
+       resterCircle.draw();
+       vectorCircle.draw();
+       resterReat.draw();
+       vectorReat.draw(); 
+
+
+
+
+
+
+
     }
 }
