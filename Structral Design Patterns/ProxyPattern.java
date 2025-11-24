@@ -45,6 +45,17 @@ class ProxyVideoService implements  VideoServiceInterface{
 }
 public class ProxyPattern{
     public static void main(String[] args) {
-        
+        RealVideoService realVideoService=new RealVideoService();
+        ProxyVideoService proxyVideoService=new ProxyVideoService(realVideoService);
+
+        proxyVideoService.playVideo("free", "free video 1");
+        proxyVideoService.playVideo("premium", "premium video 1");
+        proxyVideoService.playVideo("guest", "video 1");
+
+
+        for(int i=0;i<3;i++){
+            proxyVideoService.playVideo("free", "free video 2");
+        }
+
     }
 }
